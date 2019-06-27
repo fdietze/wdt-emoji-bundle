@@ -181,7 +181,7 @@
         textBeforeCursor = val.substring(0, selection.start),
         // `<space>:` OR `^:` followed by text
         // text is captured
-        matches = textBeforeCursor.match(/(\s|^):(\S*)$/),
+        matches = textBeforeCursor.match(/(\s|^):([^\s:]*)$/),
         text = matches && matches[2];
 
     wdtEmojiBundle.searchAfterColon(text, emojiPicker);
@@ -194,6 +194,12 @@
    * @returns {void}
    */
   wdtEmojiBundle.searchAfterColon = function (text, emojiPicker) {
+    // no text
+    if (text == null) {
+      wdtEmojiBundle.close();
+      return;
+    }
+
     // is closed
     if (!hasClass(emojiPicker, 'wdt-emoji-picker-open')) {
       wdtEmojiBundle.openPicker.call(emojiPicker, {target: emojiPicker});
