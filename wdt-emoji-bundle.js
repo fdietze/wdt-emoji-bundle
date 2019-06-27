@@ -194,11 +194,6 @@
    * @returns {void}
    */
   wdtEmojiBundle.searchAfterColon = function (text, emojiPicker) {
-    // no text  or not enough text after colon
-    if (!text || text.length < 2) {
-      wdtEmojiBundle.close();
-      return;
-    }
     // is closed
     if (!hasClass(emojiPicker, 'wdt-emoji-picker-open')) {
       wdtEmojiBundle.openPicker.call(emojiPicker, {target: emojiPicker});
