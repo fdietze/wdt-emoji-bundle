@@ -184,6 +184,8 @@
         matches = textBeforeCursor.match(/(\s|^):(\S*)$/),
         text = matches && matches[2];
 
+    console.log("MAT", matches, matches[0], matches[1], matches[2])
+    console.log("TEX", text)
     wdtEmojiBundle.searchAfterColon(text, emojiPicker);
   };
 
